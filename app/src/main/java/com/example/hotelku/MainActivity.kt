@@ -7,6 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.app.Activity
 import kotlin.random.Random
+import androidx.databinding.DataBindingUtil
+import com.example.hotelku.databinding.ActivityMainBinding
 
 class MainActivity : Activity() {
 
@@ -14,16 +16,18 @@ class MainActivity : Activity() {
     private lateinit var randButton: Button
     private lateinit var diceImg: ImageView
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         resultNumber = findViewById<TextView>(R.id.result_number)
         randButton = findViewById<Button>(R.id.random_button)
         diceImg = findViewById<ImageView>(R.id.dice_img)
 
-        randButton.setOnClickListener {
+        binding.randomButton.setOnClickListener {
             randNumber()
         }
     }
