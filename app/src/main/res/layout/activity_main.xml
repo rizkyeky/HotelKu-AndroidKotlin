@@ -30,7 +30,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:contentDescription="dice image"
-                app:srcCompat="@drawable/empty_dice"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/dice_1"
                 tools:srcCompat="@drawable/dice_1" />
 
             <Button
@@ -50,7 +51,7 @@
             android:padding="12dp">
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/type_field"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -61,13 +62,24 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/result_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text=""
                 android:textAlignment="center"
                 android:textSize="16sp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/text_scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </ScrollView>
         </LinearLayout>
+
     </LinearLayout>
 </layout>

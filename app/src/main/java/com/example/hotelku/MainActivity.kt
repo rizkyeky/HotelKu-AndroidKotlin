@@ -2,19 +2,16 @@ package com.example.hotelku
 
 //import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+//import android.widget.Button
+//import android.widget.ImageView
+//import android.widget.TextView
 import android.app.Activity
+import android.view.View
 import kotlin.random.Random
 import androidx.databinding.DataBindingUtil
 import com.example.hotelku.databinding.ActivityMainBinding
 
 class MainActivity : Activity() {
-
-    private lateinit var resultNumber: TextView
-    private lateinit var randButton: Button
-    private lateinit var diceImg: ImageView
 
     private lateinit var binding: ActivityMainBinding
 
@@ -22,13 +19,10 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-        resultNumber = findViewById<TextView>(R.id.result_number)
-        randButton = findViewById<Button>(R.id.random_button)
-        diceImg = findViewById<ImageView>(R.id.dice_img)
-
+        "Hello World ".repeat(100).also { binding.textScroll.text = it }
         binding.randomButton.setOnClickListener {
             randNumber()
+            setResultType()
         }
     }
 
@@ -42,7 +36,15 @@ class MainActivity : Activity() {
             5 -> R.drawable.dice_5
             else -> R.drawable.dice_6
         }
-        diceImg.setImageResource(resourceDiceImg)
-        resultNumber.text = randomNum.toString()
+
+        if (binding.diceImg.visibility == View.INVISIBLE) {
+            binding.diceImg.visibility = View.VISIBLE
+        }
+        binding.diceImg.setImageResource(resourceDiceImg)
+        binding.resultNumber.text = randomNum.toString()
+    }
+
+    private fun setResultType() {
+        binding.resultType.text = binding.typeField.text
     }
 }
