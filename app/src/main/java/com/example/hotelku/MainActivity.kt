@@ -10,6 +10,7 @@ import android.view.View
 import kotlin.random.Random
 import androidx.databinding.DataBindingUtil
 import com.example.hotelku.databinding.ActivityMainBinding
+import com.example.hotelku.Person
 
 class MainActivity : Activity() {
 
@@ -17,9 +18,12 @@ class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        "Hello World ".repeat(100).also { binding.textScroll.text = it }
+        binding.person1 = Person(
+            name = "Rizky Eky",
+            nickname = "Eky",
+            description = "Hello World My name is Rizky Eky".repeat(100)
+        )
         binding.randomButton.setOnClickListener {
             randNumber()
             setResultType()
@@ -41,7 +45,6 @@ class MainActivity : Activity() {
             binding.diceImg.visibility = View.VISIBLE
         }
         binding.diceImg.setImageResource(resourceDiceImg)
-        binding.resultNumber.text = randomNum.toString()
     }
 
     private fun setResultType() {

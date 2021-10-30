@@ -3,6 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+            name="person1"
+            type="com.example.hotelku.Person" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +28,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="center"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:text="@={person1.name}" />
 
             <ImageView
                 android:id="@+id/dice_img"
@@ -77,7 +84,10 @@
                 <TextView
                     android:id="@+id/text_scroll"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="wrap_content"
+                    android:text="@={person1.description}"
+                    tools:text="Hello"
+                    />
             </ScrollView>
         </LinearLayout>
 
